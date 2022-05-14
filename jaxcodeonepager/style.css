@@ -1,0 +1,257 @@
+:root {
+    /* positioning */
+
+    --header-height: 62px;
+    --header-height-mobile: 62px;
+
+    /* background */
+
+    --bg: rgb(255, 255, 255);
+    --text:white;
+
+    /* colors */
+
+    --white: #fff;
+    --rgba-white: 255, 255, 255;
+    --black: #000;
+    --primarylink: #2f22e0;
+
+    /* responsive font sizes */
+
+    --fs-intro: clamp(2.25rem, 7.75vw, 9rem);
+    --fs-h1: clamp(2.25rem, 4.75vw, 3rem);
+    --fs-h2: clamp(2rem, 4vw, 2.75rem);
+    --fs-h3: clamp(1.75rem, 2vw, 2rem);
+    --fs-h4: clamp(1.5rem, 2.5vw, 2.25rem);
+    --fs-h5: clamp(1.25rem, 2.25vw, 2.125rem);
+    --fs-h6: clamp(1.125rem, 2vw, 2rem);
+    --fs-nav: clamp(1rem, 1vw, 1.125rem);
+    --fs-text: 0.9375rem; /* 15px */
+    --fs-accent: 1.25em;
+
+    /* font weight & letter-spacing options */
+    --ff-heading: '', ;
+
+    /* display */
+
+    --visible: visible;
+}
+
+/* reset default box-sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* base styling for entire site */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    background-image:linear-gradient(120deg,rgba(66, 66, 66, 0.603),rgba(0, 0, 0, 0.719)), url('imgs/ford.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+
+    font-size: var(--fs-text);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: .6px;
+    font-family: '',sans-serif;
+
+    min-height: 200vh;
+    margin: 0;
+}
+
+/* link styling */
+
+a {
+    color: var(--primarylink);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* set margins & line-spacing for all headings/text */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: var(--ff-heading);
+}
+
+h1,
+h2 {
+    line-height: 1.2;
+}
+
+h3,
+h4 {
+    line-height: 1.4;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+/* form elements have the same font-size as the rest of the site */
+
+input,
+button,
+textarea,
+select {
+    font-size: inherit;
+}
+
+/*  -------------------------------- */
+/*  Accessibility ------------------ */
+/*  -------------------------------- */
+
+.sr-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1;
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.skip-to-content {
+    position: absolute;
+    z-index: 9999;
+    background: transparent;
+    color: white;
+    margin-inline: auto;
+    font-size: 0.875rem;
+    transform: translateY(-100%);
+    transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+    transform: translateY(0);
+}
+
+/*  -------------------------------- */
+/*  Utility ------------------ */
+/*  -------------------------------- */
+
+.container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    width: min(100% - 16rem, 90rem);
+    margin-inline: auto;
+
+    transition: width 0.3s ease-in-out;
+
+    outline: solid red 1px;
+}
+
+section{
+    min-height: 80vh;
+
+    display: grid;
+}
+
+@media only screen and (min-width: 40rem){
+section{
+    grid-template-columns:repeat(3,1fr);
+}
+ }
+
+/* #main-content div{
+    margin: auto;
+
+} */
+.flow * {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 40rem) {
+    .container {
+        width: min(100% - 3rem, 40rem);
+    }
+}
+
+/*  -------------------------------- */
+/*  Buttons & Links ------------------ */
+/*  -------------------------------- */
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: inherit;
+}
+
+/* styling links to look like buttons */
+
+.button-link {
+    display: inline-block;
+
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1;
+
+    padding: 10px;
+    border: solid 3px var(--primarylink);
+    border-radius: 28px;
+
+    background-color: var(--primarylink);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.button-link:hover,
+.button-link:focus {
+    color: var(--primarylink);
+    background-color: var(--white);
+}
+
+/*  -------------------------------- */
+/*  Header ------------------ */
+/*  -------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+   
+}
+
+nav li {
+     padding-inline: 30px;
+}
+
+nav a {
+    color: var(--black);
+}
+
+/*  -------------------------------- */
+/*  Footer ------------------ */
+/*  -------------------------------- */
+
+footer {
+    text-align: center;
+}
